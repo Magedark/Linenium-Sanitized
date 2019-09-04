@@ -1,2 +1,6 @@
 before_script:
-    python -v
+    - python -v
+    
+first_job:
+    script:
+        - python -v
