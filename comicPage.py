@@ -8,6 +8,16 @@ import time
 import json
 from icecream import ic
 
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+
+class Actions(ActionChains):
+    def wait(self, time_s: float):
+        self._actions.append(lambda: time.sleep(time_s))
+        return self
 
 
 class ComicPage(object):
@@ -56,11 +66,17 @@ class ComicPage(object):
 			return page
 
 	def openingReplies(self):
-		actions = ActionChains(self.driver)
-		buttons = self.driver.find_elements_by_class_name('u_cbox_btn_reply')
-		for button in buttons:
+		elements = []
+		replyButtons = self.driver.find_elements_by_css_selector("a[data-action='reply#toggle']")
+		for button in replyButtons:
+			dataParam = "a[data-param='" + button.get_attribute("data-param" ) + "']"
+			elements.append(dataParam)
+
+		for css_selector in elements:
+			actions = Actions(self.driver)
+			button = self.driver.find_element_by_css_selector(css_selector)
+			ic(css_selector + ": " + str(button))
 			actions.move_to_element(button)
-			actions.click(button)
+			actions.click()
 			actions.perform()
-			actions.reset_actions()
 			time.sleep(.5)
