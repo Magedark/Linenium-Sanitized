@@ -11,9 +11,9 @@ jobs:
       - python/load-cache
       - python/install-deps
       - python/save-cache
-      - run:
-          command: pipenv run behave
-          name: Behave Tests
+      - run: behave
+      #     command: pipenv run behave
+      #     name: Behave Tests
 
 workflows:
   main:
