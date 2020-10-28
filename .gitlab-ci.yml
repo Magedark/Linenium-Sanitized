@@ -1,6 +1,0 @@
-before_script:
-    - python -v
-    
-first_job:
-    script:
-        - python -v

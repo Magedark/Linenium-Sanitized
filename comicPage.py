@@ -75,8 +75,10 @@ class ComicPage(object):
 		for css_selector in elements:
 			actions = Actions(self.driver)
 			button = self.driver.find_element_by_css_selector(css_selector)
-			ic(css_selector + ": " + str(button))
+			# ic(css_selector + ": " + str(button))
 			actions.move_to_element(button)
 			actions.click()
 			actions.perform()
 			time.sleep(.5)
+
+		# ic(elements.count())
