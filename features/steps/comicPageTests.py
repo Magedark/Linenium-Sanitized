@@ -4,13 +4,14 @@ from icecream import ic
 
 @given(u"an uncommented loaded page")
 def step_impl(context):
+	ic(context.noCommentURL)
 	context.cp.getComic(context.noCommentURL)
 
 @given(u"a page has no comments")
 def step_impl(context):
 	page = context.cp.commentCounting()
 	context.numberOfComments = page["Number of comments"]
-	
+
 @then(u"number of comments should be 0")
 def step_impl(context):
 	assert context.numberOfComments == 0
@@ -46,4 +47,3 @@ def step_impl(context):
 @then(u"the url shouldn't be blank")
 def step_impl(context):
     assert context.currentPage["URL"] is not ""
-    

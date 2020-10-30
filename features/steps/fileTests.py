@@ -11,7 +11,7 @@ def step_impl(context):
 
 @given(u'a file')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: a file')	
+    raise NotImplementedError(u'STEP: a file')
 
 @then(u'that file should be loaded not be null')
 def step_impl(context):
