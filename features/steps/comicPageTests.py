@@ -4,7 +4,6 @@ from icecream import ic
 
 @given(u"an uncommented loaded page")
 def step_impl(context):
-	ic(context.noCommentURL)
 	context.cp.getComic(context.noCommentURL)
 
 @given(u"a page has no comments")
