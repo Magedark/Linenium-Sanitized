@@ -4,10 +4,9 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: circleci/node:jessie-browsers
-  build-and-test:
     executor: python/default
     steps:
       - checkout
@@ -19,5 +18,4 @@ jobs:
 workflows:
   main:
     jobs:
-      - build
       - build-and-test
