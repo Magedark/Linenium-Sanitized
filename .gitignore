@@ -248,5 +248,3 @@ dmypy.json
 
 *.json
 *.sublime*
-.env
-!test.env
