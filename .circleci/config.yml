@@ -18,11 +18,7 @@ jobs:
           args: behave
           pkg-manager: pip
           pypi-cache: false
-      - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
-      - run:
+       - run:
           command: behave 
           name: Behave tests
 
