@@ -9,6 +9,7 @@ jobs:
       - image: circleci/python:rc-browsers
     executor: python/default
     steps:
+      - checkout
       - python/install-packages:
           pkg-manager: pip
       - python/install-packages:
@@ -17,8 +18,11 @@ jobs:
       - python/install-packages:
           args: behave
           pkg-manager: pip
-          # pypi-cache: false
-       - run:
+          pypi-cache: false
+      # - python/load-cache
+      # - python/install-deps
+      # - python/save-cache
+      - run:
           command: behave 
           name: Behave tests
 
