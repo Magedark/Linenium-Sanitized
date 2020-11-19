@@ -9,7 +9,6 @@ jobs:
       - image: circleci/python:rc-browsers
     executor: python/default
     steps:
-      - checkout
       - python/install-packages:
           pkg-manager: pip
       - python/install-packages:
