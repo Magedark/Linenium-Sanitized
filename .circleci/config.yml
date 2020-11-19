@@ -10,14 +10,14 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
+      # - python/install-packages:
+      #     pkg-manager: pip
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
-      - python/install-packages:
-          args: behave
-          pkg-manager: pip
+      # - python/install-packages:
+      #     args: behave
+      #     pkg-manager: pip
           # pypi-cache: false
       # - python/load-cache
       # - python/install-deps
