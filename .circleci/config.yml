@@ -22,7 +22,7 @@ jobs:
       # - run:
       #     command: sudo pip install pipenv && pipenv install
       - run: 
-          command: sudo apt-get update && apt-get -y install google-chrome-stable
+          command: sudo apt-get update && sudo apt-get -y install google-chrome-stable
           name: Install Google Chrome
 
       - run:
