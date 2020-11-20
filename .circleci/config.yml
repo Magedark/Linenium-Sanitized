@@ -5,22 +5,15 @@ orbs:
 
 jobs:
   build:
-      # docker:
-      #   - image: circleci/python:rc-browsers
+
     executor: python/default
     steps:
       - checkout
-
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
 
-      # - python/load-cache
-      # - python/install-deps
-      # - python/save-cache
-      # - run: ls
-      # - run:
-      #     command: sudo pip install pipenv && pipenv install
+      # This command installs google chrome. Since ubuntu doesn't have chrome in the repositories, it requires more creative solutions.
       - run: 
           command: |
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
