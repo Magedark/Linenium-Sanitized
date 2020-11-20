@@ -23,6 +23,10 @@ jobs:
       # - python/install-deps
       # - python/save-cache
       - run:
+          command: |
+          sudo pip install pipenv
+          pipenv install
+      - run:
           command: behave 
           name: Behave tests
 
