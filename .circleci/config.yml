@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.0
 
 orbs:
   python: circleci/python@1.2.1
@@ -22,6 +22,7 @@ jobs:
       # - python/load-cache
       # - python/install-deps
       # - python/save-cache
+      - run: ls
       # - run:
       #     command: sudo pip install pipenv && pipenv install
       # - run:
