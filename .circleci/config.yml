@@ -13,9 +13,10 @@ jobs:
       # - python/install-packages:
       #     pkg-manager: pip
       - python/install-packages:
+          pkg-manager: pip
+      - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
-          pypi-cache: false
       # - python/install-packages:
       #     args: behave
       #     pkg-manager: pip
@@ -23,7 +24,7 @@ jobs:
       # - python/load-cache
       # - python/install-deps
       # - python/save-cache
-      - run: ls
+      # - run: ls
       # - run:
       #     command: sudo pip install pipenv && pipenv install
       # - run:
