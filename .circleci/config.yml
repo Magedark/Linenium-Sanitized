@@ -5,6 +5,8 @@ orbs:
 
 jobs:
   build:
+      # docker:
+      #   - image: circleci/python:rc-browsers
     executor: python/default
     steps:
       - checkout
@@ -19,6 +21,10 @@ jobs:
       # - run: ls
       # - run:
       #     command: sudo pip install pipenv && pipenv install
+      - run: 
+          command: sudo apt-get update && apt-get -y install google-chrome-stable
+          name: Install Google Chrome
+
       - run:
           command: behave 
           name: Behave tests
