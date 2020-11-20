@@ -8,26 +8,20 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      # - python/install-packages:
-      #     pkg-manager: pip
-      - python/install-packages:
-          pkg-manager: pip
+
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
-      # - python/install-packages:
-      #     args: behave
-      #     pkg-manager: pip
-          # pypi-cache: false
+
       # - python/load-cache
       # - python/install-deps
       # - python/save-cache
       # - run: ls
       # - run:
       #     command: sudo pip install pipenv && pipenv install
-      # - run:
-      #     command: behave 
-      #     name: Behave tests
+      - run:
+          command: behave 
+          name: Behave tests
 
 workflows:
   main:
